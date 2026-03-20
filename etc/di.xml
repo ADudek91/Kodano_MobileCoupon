@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\SalesRule\Model\Coupon">
+        <plugin name="before_coupon_save" type="Kodano\MobileCoupon\Plugin\BeforeCouponSave"/>
+    </type>
+
+    <type name="Magento\SalesRule\Model\Rule\DataProvider">
+        <plugin name="Kodano_MobileCoupon_Plugin_DataProvider_AddOnMobileField"
+                type="Kodano\MobileCoupon\Plugin\DataProvider\RuleDataProviderPlugin"
+                sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Checkout\Controller\Cart\CouponPost">
+        <plugin name="kodano_mobilecoupon_couponpost_controller_plugin"
+                type="Kodano\MobileCoupon\Plugin\Controller\Cart\CouponPostPlugin"
+                sortOrder="10"/>
+    </type>
+
+    <!-- REST API service contracts -->
+    <preference for="Kodano\MobileCoupon\Api\MobileCouponRepositoryInterface"
+                type="Kodano\MobileCoupon\Model\MobileCouponRepository"/>
+
+    <preference for="Kodano\MobileCoupon\Api\Data\MobileCouponInterface"
+                type="Kodano\MobileCoupon\Model\Data\MobileCoupon"/>
+
+</config>

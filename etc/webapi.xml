@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- GET /V1/mobile-coupons — list all mobile-only coupons -->
+    <route url="/V1/mobile-coupons" method="GET">
+        <service class="Kodano\MobileCoupon\Api\MobileCouponRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- POST /V1/mobile-coupons/:couponCode — mark coupon as mobile-only -->
+    <route url="/V1/mobile-coupons/:couponCode" method="POST">
+        <service class="Kodano\MobileCoupon\Api\MobileCouponRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- DELETE /V1/mobile-coupons/:couponCode — remove mobile-only flag -->
+    <route url="/V1/mobile-coupons/:couponCode" method="DELETE">
+        <service class="Kodano\MobileCoupon\Api\MobileCouponRepositoryInterface" method="delete"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>
