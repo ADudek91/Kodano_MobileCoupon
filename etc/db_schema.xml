@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="salesrule_coupon" resource="default" engine="innodb" comment="Salesrule Coupon">
+        <column xsi:type="smallint" name="on_mobile" nullable="false" default="0" comment="Only for mobile"/>
+    </table>
+</schema>
